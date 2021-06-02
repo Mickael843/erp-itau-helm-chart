@@ -9,13 +9,12 @@ phases:
       - mv linux-amd64/helm /bin/helm
       - chmod +x /bin/kubectl /bin/helm ./aws-iam-authenticator
       - export PATH=$PWD/:$PATH
-      - apt-get update && apt-get install -y maven && apt-get -y install jq python3-pip python3-dev && pip3 install --upgrade awscli
+      - apt-get update && apt-get -y install jq python3-pip python3-dev && pip3 install --upgrade awscli
   
   pre_build: 
     commands:
       - echo connecting ecr
       - docker login -u AWS -p $(aws ecr-public get-login-password --region us-east-1) $URL_REPO
-      - mvn clean install
       - echo exporting kubeconfig
       - export KUBECONFIG=$HOME/.kube/config
 
