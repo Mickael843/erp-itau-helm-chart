@@ -14,7 +14,7 @@ phases:
   pre_build: 
     commands:
       - echo connecting ecr
-      - docker login -u AWS -p(aws ecr-public get-login-password --region us-east-1) $URL_REPO
+      - docker login -u AWS -p $(aws ecr-public get-login-password --region us-east-1) $URL_REPO
       - mvn clean install
       - echo exporting kubeconfig
       - export KUBECONFIG=$HOME/.kube/config
