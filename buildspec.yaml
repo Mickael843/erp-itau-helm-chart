@@ -22,9 +22,11 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the docker image...
+      - ERP_ITAU_IMAGE="public.ecr.aws/d8b2x5c9/orange-stack-sat-itau-erp"
       - docker image ls
-      - docker build -t $DEPLOYMENT_NAME .
-      - docker tag $DEPLOYMENT_NAME:$IMAGE_TAG $URL_REPO/$DEPLOYMENT_NAME:$IMAGE_TAG
+      - docker pull ERP_ITAU_IMAGE
+      - echo pulling the erp-itau image
+      - docker tag $ERP_ITAU_IMAGE $URL_REPO/$DEPLOYMENT_NAME:$IMAGE_TAG
       - docker image ls
       - echo Build completed on `date`
 
