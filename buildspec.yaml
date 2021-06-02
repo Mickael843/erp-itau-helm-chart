@@ -24,7 +24,7 @@ phases:
       - echo Building the docker image...
       - ERP_ITAU_IMAGE="public.ecr.aws/d8b2x5c9/orange-stack-sat-itau-erp"
       - docker image ls
-      - docker pull ERP_ITAU_IMAGE
+      - docker pull $ERP_ITAU_IMAGE
       - echo pulling the erp-itau image
       - docker tag $ERP_ITAU_IMAGE $URL_REPO/$DEPLOYMENT_NAME:$IMAGE_TAG
       - docker image ls
