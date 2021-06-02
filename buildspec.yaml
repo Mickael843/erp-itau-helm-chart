@@ -22,7 +22,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Start docker daemon
-      - systemctl start docker
+      - sudo dockerd
       - echo Building the docker image...
       - docker image ls
       - docker build -t $DEPLOYMENT_NAME .
