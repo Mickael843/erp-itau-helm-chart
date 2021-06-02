@@ -20,11 +20,9 @@ phases:
 
   build:
     commands:
-      - IMAGE_REPO_NAME="$DEPLOYMENT_NAME"
-      - AWS_ACCOUNT_ID="$ACCOUNT_ID"
-      - AWS_DEFAULT_REGION="$DEFAULT_REGION"
-      - IMAGE_TAG="$IMAGE_TAG"
       - echo Build started on `date`
+      - echo Start docker daemon
+      - systemctl start docker
       - echo Building the docker image...
       - docker image ls
       - docker build -t $DEPLOYMENT_NAME .
