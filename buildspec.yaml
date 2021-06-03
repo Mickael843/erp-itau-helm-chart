@@ -26,14 +26,14 @@ phases:
       - docker image ls
       - docker pull $ERP_ITAU_IMAGE
       - echo pulling the erp-itau image
-      - docker tag $ERP_ITAU_IMAGE $URL_REPO/$DEPLOYMENT_NAME:$IMAGE_TAG
+      - docker tag $ERP_ITAU_IMAGE $URL_REPO/$REPO_NAME:$IMAGE_TAG
       - docker image ls
       - echo Build completed on `date`
 
   post_build:
     commands:
       - echo Pushing in to Amazon ECR...
-      - docker push $URL_REPO/$DEPLOYMENT_NAME:$IMAGE_TAG
+      - docker push $URL_REPO/$REPO_NAME:$IMAGE_TAG
       - echo Push completed on `date`
       - echo deploying to cluster...
       - helm version --short
