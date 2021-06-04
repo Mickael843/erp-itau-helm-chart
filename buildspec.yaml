@@ -21,5 +21,5 @@ phases:
       - kubectl get nodes
       - helm install $DEPLOYMENT_NAME $DEPLOYMENT_NAME
       - helm list
-      - helm upgrade -i $DEPLOYMENT_NAME . --values $DEPLOYMENT_NAME/values.yaml
+      - helm upgrade -i $DEPLOYMENT_NAME $DEPLOYMENT_NAME --values $DEPLOYMENT_NAME/values.yaml
       
