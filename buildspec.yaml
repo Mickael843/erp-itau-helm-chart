@@ -19,5 +19,7 @@ phases:
       - helm lint $DEPLOYMENT_NAME --values $DEPLOYMENT_NAME/values.yaml
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --role-arn $ARN_ROLE
       - kubectl get nodes
+      - helm install $DEPLOYMENT_NAME $DEPLOYMENT_NAME
+      - helm list
       - helm upgrade -i $DEPLOYMENT_NAME . --values $DEPLOYMENT_NAME/values.yaml
       
